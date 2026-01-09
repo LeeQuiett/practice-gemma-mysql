@@ -1,27 +1,39 @@
 /*
 [질문]
-부서별로 가장 급여가 높은 직원의 이름(name), 부서(department), 급여(salary)를 조회하는 SQL 쿼리를 작성합니다.
+각 sale_id에 해당하는 제품 이름(product_name), 판매 연도(year), 판매 가격(price)을 조회하는 SQL 쿼리를 작성합니다.
 */
 
 # [SETTING]
-SHOW TABLES;
-show DATABASES;
 USE practice;
-# DROP TABLE employee;
-CREATE TABLE employee (
-  id INT,
-  name VARCHAR(255),
-  department VARCHAR(255),
-  salary INT,
-  PRIMARY KEY (id)
+# DROP TABLE sales;
+CREATE TABLE sales
+(
+    sale_id    INT,
+    product_id INT,
+    year       INT,
+    quantity   INT,
+    price      INT,
+    PRIMARY KEY (sale_id)
 );
-INSERT INTO
-  employee (id, name, department, salary)
-VALUES (101, 'Max', 'Sales', 1300),
-	(102, 'Katty', 'Management', 150000),
-	(103, 'Richard', 'Management', 250000),
-	(104, 'Jennifer', 'Sales', 1000),
-	(105, 'George', 'Management', 100000),
-	(106, 'Laila', 'Sales', 1000),
-	(107, 'Sarah', 'employeeSales', 2000);
-SELECT * FROM employee;
+INSERT INTO sales (sale_id, product_id, year, quantity, price)
+VALUES (1, 100, 2022, 10, 5000),
+    (2, 100, 2023, 12, 5000),
+    (7, 200, 2025, 15, 9000);
+SELECT *
+FROM sales;
+
+# [SETTING]
+USE practice;
+# DROP TABLE product;
+CREATE TABLE product
+(
+    product_id   INT,
+    product_name VARCHAR(255),
+    PRIMARY KEY (product_id)
+);
+INSERT INTO product (product_id, product_name)
+VALUES (100, 'Nokia'),
+    (200, 'Apple'),
+    (300, 'Samsung');
+SELECT *
+FROM product;
