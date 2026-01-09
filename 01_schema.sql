@@ -35,5 +35,24 @@ INSERT INTO product (product_id, product_name)
 VALUES (100, 'Nokia'),
     (200, 'Apple'),
     (300, 'Samsung');
-SELECT *
-FROM product;
+SELECT * FROM product;
+
+# 정답
+select product_name, year, price from product as p
+inner join sales as s
+on p.product_id = s.product_id;
+
+# 중간코드1
+select
+	s.sale_id,
+    s.product_id,
+    s.year,
+    s.quantity,
+    s.price,
+    p.product_id,
+    p.product_name
+from sales as s
+inner join product as p
+on p.product_id = s.product_id;
+
+
