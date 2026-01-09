@@ -62,7 +62,7 @@ FROM (
 	GROUP BY product_id
     HAVING SUM(unit) >= 100
 ) AS o
-INNER JOIN products AS pcx
+INNER JOIN products AS p
 	ON p.product_id = o.product_id;
 
 SELECT * FROM products;
